@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tabla de Multiplicar</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Orbitron', sans-serif;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            transition: 0.3s;
+        }
+
+        .container {
+            padding: 20px;
+            border-radius: 15px;
+            width: 400px;
+            text-align: center;
+            margin-top: 10px;
+            transition: 0.3s;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        input {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            width: 80%;
+            margin-bottom: 15px;
+            color: #333;
+        }
+
+        button {
+            padding: 6px 10px;
+            border-radius: 5px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            opacity: 0.8;
+        }
+
+        .output-box {
+            margin-top: 15px;
+            padding: 10px;
+            border-radius: 10px;
+            min-height: 150px;
+            max-height: 200px;
+            overflow-y: auto;
+            transition: 0.3s;
+        }
+
+        pre {
+            font-size: 18px;
+            font-family: 'Courier New', monospace; /* Fuente monoespaciada para el output */
+            transition: 0.3s;
+        }
+
+        /* Temas */
+        body.neon {
+            background: black;
+            color: white;
+        }
+
+        .neon .container {
+            background-color: rgba(20, 20, 20, 0.8);
+            box-shadow: 0px 0px 20px cyan;
+        }
+
+        .neon h2 {
+            color: cyan;
+            text-shadow: 0px 0px 10px cyan;
+        }
+
+        .neon button {
+            background-color: cyan;
+            color: black;
+        }
+
+        .neon .output-box {
+            background-color: #333;
+            color: white;
+        }
+
+        .neon pre {
+            color: cyan;
+        }
+
+        body.dark {
+            background: #222;
+            color: white;
+        }
+
+        .dark .container {
+            background-color: #333;
+            box-shadow: 0px 0px 15px gray;
+        }
+
+        .dark h2 {
+            color: white;
+            text-shadow: 0px 0px 10px white;
+        }
+
+        .dark button {
+            background-color: gray;
+            color: black;
+        }
+
+        .dark .output-box {
+            background-color: #444;
+            color: white;
+        }
+
+        .dark pre {
+            color: white;
+        }
+
+        body.light {
+            background: white;
+            color: black;
+        }
+
+        .light .container {
+            background-color: #f5f5f5;
+            box-shadow: 0px 0px 15px rgb(150, 149, 149);
+        }
+
+        .light h2 {
+            color: black;
+            text-shadow: 0px 0px 10px black;
+        }
+
+        .light button {
+            background-color: black;
+            color: white;
+        }
+
+        .light .output-box {
+            background-color: #ddd;
+            color: black;
+        }
+
+        .light pre {
+            color: black;
+        }
+
+        /* Botones para cambiar de tema */
+        .settings {
+            margin-top: 20px;
+        }
+
+        .settings button {
+            font-size: 18px;
+            padding: 10px 12px;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            margin: 0 5px;
+            transition: 0.3s;
+        }
+
+        .settings button:hover {
+            opacity: 0.8;
+        }
+
+        .settings button:active {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+<body class="neon"> <!-- Inicia con el tema Neón -->
+
+    <div class="container">
+        <!-- Título dentro del contenedor -->
+        <h2>Tabla de Multiplicar</h2>
+
+        <input type="number" id="numero" placeholder="Ingresa un número">
+        <input type="number" id="limite" placeholder="Ingresa el límite">
+        <button onclick="imprimirTabla()">Generar Tabla</button>
+        
+        <div class="output-box">
+            <pre id="resultado"></pre>
+        </div>
+    </div>
+
+    <div class="settings">
+        <button onclick="changeTheme('neon')">🌟</button>
+        <button onclick="changeTheme('dark')">🌙</button>
+        <button onclick="changeTheme('light')">☀️</button>
+    </div>
+
+    <script>
+        function imprimirTabla() {
+            const numero = parseInt(document.getElementById("numero").value);
+            const limite = parseInt(document.getElementById("limite").value);
+
+            if (isNaN(numero) || isNaN(limite) || numero <= 0 || limite <= 0) {
+                alert("Por favor ingresa números válidos.");
+                return;
+            }
+
+            let resultado = "";
+            let i = 1;
+
+            // Ciclo while para generar la tabla de multiplicar
+            while (i <= limite) {
+                resultado += `${numero} x ${i} = ${numero * i}\n`;
+                i++;
+            }
+
+            // Mostrar el resultado en el contenedor
+            document.getElementById("resultado").innerText = resultado;
+        }
+
+        // Función para cambiar el tema
+        function changeTheme(theme) {
+            document.body.classList.remove('neon', 'dark', 'light');
+            document.body.classList.add(theme);
+        }
+
+        // Limpiar los campos de entrada al recargar la página
+        window.onload = () => {
+            document.getElementById("numero").value = "";
+            document.getElementById("limite").value = "";
+        };
+    </script>
+</body>
+</html>
