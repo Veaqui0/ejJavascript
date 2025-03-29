@@ -1,32 +1,34 @@
 //Problema 4: Identificar el día de la semana.
 function diaSemana (){
     let dia = document.getElementById('selectedDay').value;
+    console.log('dia:: ', dia);
+    
     let response = document.getElementById('resultado');
 
-    switch (dia) {
+    switch (parseInt(dia)) {
         case 1:
             response.innerText = 'Lunes'
             break;
         case 2:
-            console.log('Martes');
+            response.innerText = 'Martes';
             break;
         case 3:
-            console.log('Miercoles');
+            response.innerText = 'Miercoles';
             break;
         case 4:
-            console.log('Jueves');
+            response.innerText = 'Jueves';
             break;
         case 5:
-            console.log('Viernes');
+            response.innerText = 'Viernes';
             break;
         case 6:
-            console.log('Sabado');
+            response.innerText = 'Sabado';
             break;
         case 7:
-            console.log('Domingo');
+            response.innerText = 'Domingo';
             break;
         default:
-            console.log('El numero suministrado no conrresponde a un dia de la semana');
+            response.innerText = 'El numero suministrado no conrresponde a un dia de la semana';
             break;
     }
 }
