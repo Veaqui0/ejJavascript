@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label for="nombre">Numero:</label>
+    <input type="text" id="nombre" name="nombre" placeholder="Ingresa Numero" required maxlength="50">
+    <button onclick="DeterminaRango()" >presiona</button>
+
+</body>
+    <script>
+        
+    function DeterminaRango() {
+        let range = parseInt(document.getElementById ("nombre").value);
+
+         if(range >= 10 || range <= 50){
+            alert("Numero está en el rango");
+         }
+        else if(range <= 10 || range >=50) {
+            alert("No está en rango")
+        }; 
+        
+    }
+    </script>
+</html>
