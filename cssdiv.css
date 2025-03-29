@@ -1,0 +1,47 @@
+h1{
+    text-align: center;
+    border-top: 300px
+}
+section{
+    background: linear-gradient(rgb(203, 209, 228), rgb(165, 134, 188));    
+}
+.caja0{
+
+    width: 300px; /* Ancho del formulario */
+    padding: 60px; /* Espaciado interno */
+    border: 2px solid black; /* Borde sólido de 2px en color negro */
+    border-radius: 10px; /* Bordes redondeados */
+    box-shadow: 3px 3px 10px rgba(7, 55, 176, 0.623); /* Sombra suave */
+
+    
+
+    input, button {
+    width: 100%; /* Que ocupen todo el ancho */
+    margin: 5px 0; /* Espacio entre elementos */
+    padding: 10px;
+    border: 1px solid #ccc; /* Borde gris claro */
+    border-radius: 5px; /* Bordes redondeados */
+    }
+    button {
+        background-color: #441590;
+        color: white;
+        border: none;
+        cursor: pointer;
+        width: 320px;
+    }
+    p{
+      background: #441590;
+      color: white;
+      border: 2px solid rgb(164, 148, 243);
+      border-radius: 10px;
+    }
+    #resultado{
+        width: 300px; /* Ancho del formulario */
+        padding: 10px; /* Espaciado interno */
+        border: 2px solid black; /* Borde sólido de 2px en color negro */
+        border-radius: 10px; /* Bordes redondeados */
+        box-shadow: 3px 3px 10px rgba(7, 55, 176, 0.623); /* Sombra suave */
+        background-color: #f9f9f9; /* Color de fondo */    
+    
+    }
+}   
