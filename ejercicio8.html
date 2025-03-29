@@ -1,0 +1,45 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ejercicio 8:Ciclo For Contador</title>
+</head>
+<body style="display: flex;">
+    <div style="width: 40%;">
+    <h2>Contador de un Ciclo For Ascendente</h2>
+    <input type="number" id="iterador" placeholder="Iteraciones">
+    <button onclick="contadorAscendente()">Iniciar Ascendente</button>
+    <pre id="result"></pre>
+    </div>
+
+    <div><h2>Contador de un Ciclo For Descendente</h2>
+        <input type="number" id="iterador2" placeholder="Iteraciones">
+        <button onclick="contadorDescendente()">Iniciar Descendente</button>
+        <pre id="result2"></pre>
+    </div>
+    
+
+    <script>
+        function contadorAscendente(){
+            const iter = parseInt(document.getElementById("iterador").value);
+            let resultado = "";
+            //i variable de inicializacion del for
+                for(let i = 1; i <= iter; i++){
+                    resultado += (`${i}\n`);
+                }
+                document.getElementById("result").innerText = resultado;
+            }
+
+            function contadorDescendente(){
+                const iter = parseInt(document.getElementById("iterador2").value);
+                let resultado = "";
+                //i variable de inicializacion del for
+                    for(let j = iter; j >= 1; j--){
+                        resultado += (`${j}\n`);
+                    }
+                    document.getElementById("result2").innerText = resultado;
+                }
+    </script>
+    
+</body>
+</html>
