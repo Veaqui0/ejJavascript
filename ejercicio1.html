@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificar Votación</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f4;
+            margin: 0;
+        }
+        .container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        input {
+            padding: 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px;
+            background: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #0056b3;
+        }
+        #resultado {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Verificación de Voto</h2>
+        <input type="number" id="edad" placeholder="Ingrese su edad" min="0" max="120">
+        <button onclick="verificarEdad()">Verificar</button>
+        <p id="resultado"></p>
+    </div><script>
+    function verificarEdad() {
+        let edad = parseInt(document.getElementById("edad").value);
+        let resultado = document.getElementById("resultado");
+        
+        if (isNaN(edad) || edad < 0 || edad > 120) {
+            resultado.textContent = "Edad no válida. Ingrese un número entre 0 y 120.";
+            resultado.style.color = "red";
+            return;
+        }
+        
+        let categoria = edad <= 12 ? "Niño" : 
+                        edad <= 17 ? "Adolescente" : 
+                        edad <= 59 ? "Adulto" : "Adulto mayor";
+        
+        let puedeVotar = edad >= 18 ? "Puede votar." : "No puede votar.";
+        
+        resultado.textContent = `Usted es un ${categoria}. ${puedeVotar}`;
+        resultado.style.color = "black";
+    }
+</script>
+    
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
